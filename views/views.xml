@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Actions <field name="view_id" ref="library_tree_view"/> -->
+    <record model="ir.actions.act_window" id="library_action">
+    <field name="name">Create new</field>
+    <field name="res_model">lib.library</field>
+    <field name="view_mode">tree</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="library_action_form">
+    <field name="name">Create new2</field>
+    <field name="res_model">lib.library</field>
+    <field name="view_mode">form</field>
+    </record>
+
+    <!-- View -->
+    <record model="ir.ui.view" id="library_tree_view">
+    <field name="name">library_tree_view</field>
+    <field name="model">lib.library</field>
+    <field name="priority" eval="16"/>
+    <field name="arch" type="xml">
+        <tree string="Library list">
+            <field name="name"/>
+            <field name="description"/>
+            <field name="company"/>
+        </tree>
+    </field>
+    </record>
+
+    <record model="ir.ui.view" id="library_form_view">
+    <field name="name">library_form_view</field>
+    <field name="model">lib.library</field>
+    <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="company"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_ideas"
+        action="library_action"
+        name="Library"
+        sequence="10"/>
+
+    <menuitem id="library_menu_create"
+        name="Create file"
+        parent="menu_ideas"
+        sequence="2"/>
+
+    <menuitem id="library_menu_view_form"
+        action="library_action"
+        name="View"
+        parent="library_menu_create"
+        sequence="2"/>
+
+    <menuitem id="library_menu_create_form"
+        action="library_action_form"
+        name="Create"
+        parent="library_menu_create"
+        sequence="2"/>
+
+    <menuitem id="library_menu_wizard"
+        name="Wizard"
+        parent="menu_ideas"
+        sequence="2"/>
+
+    <menuitem id="library_menu_wizard_create"
+        action="print_data_wizard"
+        name="Wizard create"
+        parent="library_menu_wizard"
+        sequence="2"/>
+
+</odoo>
