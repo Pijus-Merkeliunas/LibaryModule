@@ -5,7 +5,7 @@
     <record model="ir.actions.act_window" id="library_action">
         <field name="name">Create new</field>
         <field name="res_model">lib.library</field>
-        <field name="view_mode">tree</field>
+        <field name="view_mode">tree,form</field>
     </record>
 
     <record model="ir.actions.act_window" id="library_action_form">

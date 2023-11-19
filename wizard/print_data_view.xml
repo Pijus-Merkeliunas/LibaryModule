@@ -28,8 +28,8 @@
             <form>
                 <sheet>
                     <group>
-                      <field name="from_date" string="Start"/>
-                      <field name="to_date" string="End"/>
+                      <field name="from_date" string="Start date:"/>
+                      <field name="to_date" string="To date:"/>
                     </group>
                 </sheet>
                 <footer>
