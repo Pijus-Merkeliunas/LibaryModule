@@ -1,36 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
     <record model="ir.actions.act_window" id="print_data_wizard">
-    <field name="name">Print data</field>
-    <field name="res_model">lib.print.wizard</field>
-    <field name="view_mode">form</field>
-    <field name="target">new</field>
+        <field name="name">Print data wizard</field>
+        <field name="res_model">lib.print.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
     </record>
+
+    <report
+    id="report_print_data"
+    model="lib.library"
+    string="Print library data"
+    report_type="qweb-pdf"
+    name="library.library_template_id"
+    file="library.library_template_id"
+    />
+
+
+
 
 
     <record model="ir.ui.view" id="print_data_view">
-    <field name="name">wizard_view</field>
-    <field name="model">lib.print.wizard</field>
-    <field name="arch" type="xml">
-        <form>
-            <sheet>
-                <group>
-                  <field name="from_date" string="Start"/>
-                  <field name="to_date" string="End"/>
-                </group>
-            </sheet>
-            <footer>
-                <group>
+        <field name="name">wizard_view</field>
+        <field name="model">lib.print.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                      <field name="from_date" string="Start"/>
+                      <field name="to_date" string="End"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <group>
 
-                    <button
-                    name = "print"
-                    type = "action"
-                    />
+                        <button  name = "print_required_data" string= "Print" class="oe_highlight" type = "object" /> <!-- TODO -->
 
-                </group>
-            </footer>
-        </form>
-    </field>
+                        <button  name = "print" string= "Cancel" special = "cancel" />
+
+                    </group>
+                </footer>
+            </form>
+        </field>
     </record>
 
 </odoo>
